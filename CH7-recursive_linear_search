@@ -1,0 +1,16 @@
+def recursive_linear_search(a, target, index=0):
+    if index >= len(a):
+        return -1
+    if a[index] == target:
+        return index
+    return recursive_linear_search(a, target, index + 1)
+
+# Example usage
+a = [3, 5, 2, 4, 9, 1]
+target = 4
+result = recursive_linear_search(arr, target)
+
+if result != -1:
+    print(f"Element {target} found at index {result}")
+else:
+    print(f"Element {target} not found in the array")
