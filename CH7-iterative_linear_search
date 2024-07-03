@@ -1,0 +1,13 @@
+def iterative_linear_search(a, target):
+    for index in range(len(a)):
+        if a[index] == target:
+            return index  # Target found at index
+    return -1  # Target not found in the array
+# Example usage
+arr = [3, 5, 2, 4, 9, 1]
+target = 4
+result = iterative_linear_search(arr, target)
+if result != -1:
+    print(f"Element {target} found at index {result}")
+else:
+    print(f"Element {target} not found in the array")
