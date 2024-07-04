@@ -1,0 +1,19 @@
+def recursive_interpolation_search(a, target, low, high):
+    if low <= high and target >= a[low] and target <= a[high]:
+        pos = low + ((high - low) // (a[high] - a[low]) * (target - a[low]))
+        if a[pos] == target:
+            return pos
+        if a[pos] < target:
+            return recursive_interpolation_search(a, target, pos + 1, high)
+        return recursive_interpolation_search(a, target, low, pos - 1)
+    return -1  # Target not found
+
+# Example usage
+a = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+target = 70
+result = recursive_interpolation_search(a, target, 0, len(arr) - 1)
+
+if result != -1:
+    print(f"Element {target} found at index {result}")
+else:
+    print(f"Element {target} not found in the array")
