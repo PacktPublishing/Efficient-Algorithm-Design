@@ -1,0 +1,24 @@
+import math
+def recursive_jump_search(arr, target, prev=0, step=None):
+    n = len(arr)
+    if step is None:
+        step = int(math.sqrt(n))  # Block size to jump
+    if prev >= n:
+        return -1
+    if arr[min(step, n) - 1] < target:
+        return recursive_jump_search(arr, target, step, step + int(math.sqrt(n)))
+    while prev < min(step, n) and arr[prev] < target:
+        prev += 1
+
+    # If element is found
+    if prev < n and arr[prev] == target:
+        return prev
+    return -1
+# Example usage
+arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+target = 6
+result = recursive_jump_search(arr, target)
+if result != -1:
+    print(f"Element {target} found at index {result}")
+else:
+    print(f"Element {target} not found in the array")
