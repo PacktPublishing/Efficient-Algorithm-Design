@@ -1,0 +1,19 @@
+def iterative_exponential_search(a, target):
+    if a[0] == target:
+        return 0
+    n = len(a)
+    i = 1
+    while i < n and a[i] <= target:
+        i = i * 2
+    return binary_search(a, i // 2, min(i, n - 1), target)
+
+# Example usage
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+target = 7
+result = iterative_exponential_search(a, target)
+
+if result != -1:
+    print(f"Element {target} found at index {result}")
+else:
+    print(f"Element {target} not found in the aay")
+
