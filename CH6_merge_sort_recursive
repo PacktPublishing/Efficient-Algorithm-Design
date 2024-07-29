@@ -17,15 +17,7 @@ def merge_sort_recursive(a):
                 a[k] = right_partition [j]
                 j += 1
             k += 1
-        # Checking if any element was left
-        while i < len(left_partition):
-            a[k] = left_partition [i]
-            i += 1
-            k += 1
-        while j < len(right_partition):
-            a[k] = right_partition [j]
-            j += 1
-            k += 1
+
 
 a=[38, 27, 43, 3, 9, 82]
 merge_sort_recursive(a)
