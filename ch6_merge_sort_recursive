@@ -1,0 +1,30 @@
+def merge_sort_recursive(a):
+    if len(a) > 1:
+        middle = len(a) // 2
+        left_partition = a[:middle]
+        right_partition = a[middle:]
+        merge_sort_recursive(left_partition)
+        merge_sort_recursive(right_partition)
+        i = j = k = 0
+        while i < len(left_partition) and j < len(right_partition):
+            if left_partition[i] < right_partition[j]:
+                a[k] = left_partition[i]
+                i += 1
+            else:
+                a[k] = right_partition[j]
+                j += 1
+               k += 1
+        while i < len(left_partition):
+            a[k] = left_partition[i]
+            i += 1
+            k += 1
+        while j < len(right_partition):
+            a[k] = right_partition[j]
+            j += 1
+            k += 1
+
+
+# Example usage
+a = [38, 27, 43, 3, 9, 82]
+merge_sort_recursive(a)
+print("Sorted aay:", a)
