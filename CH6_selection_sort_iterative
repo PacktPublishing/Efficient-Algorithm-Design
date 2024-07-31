@@ -1,0 +1,16 @@
+def selection_sort_iterative(a):
+    n = len(a)
+    for i in range(n):
+        # Find the minimum element in the remaining unsorted array
+        min_id = i
+        for j in range(i + 1, n):
+            if a[j] < a[min_id]:
+                min_id = j
+        # Swap the found minimum element with the first element
+        a[i], a[min_id] = a[min_id], a[i]
+    return a
+
+# Example usage
+a = [29, 10, 14, 37, 13, 5, 8989]
+sorted_a = selection_sort_iterative(a)
+print("Sorted array:", sorted_a)
