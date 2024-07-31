@@ -1,0 +1,16 @@
+def bubble_sort_iterative(a):
+    n = len(a)
+    for i in range(n):
+        elements_swapped = False
+        for j in range(0, n - i - 1):
+            if a[j] > a[j + 1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
+                elements_swapped = True
+        if not elements_swapped:
+            break
+    return a
+
+# Example usage
+a = [5, 3, 8, 4, 2, 7, 1, 6, 6666]
+sorted_a = bubble_sort_iterative(a)
+print("Sorted array:", sorted_a)
