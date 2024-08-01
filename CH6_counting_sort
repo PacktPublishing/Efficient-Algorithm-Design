@@ -1,0 +1,38 @@
+def counting_sort(a):
+    if not arr:
+        return arr
+
+    maxv = max(a)
+    minv = min(a)
+    rangev = maxv - minv + 1
+
+    # Create a count array to store count of individual elements and initialize it to 0
+    count = [0] * rangev
+    temp = [0] * len(a)
+
+    # Store the count of each element
+    for k in a:
+        count[k - minv] += 1
+
+    # Change count[i] so that count[i] contains the actual position of this element in the output array
+    for i in range(1, len(count)):
+        count[i] += count[i - 1]
+
+    # Build the output array
+    for k in reversed(a):
+        temp[count[k - minv] - 1] = k
+        count[k - minv] -= 1
+        print(temp)
+        print(temp)
+        print('-------')
+
+    # Copy the output array to arr, so that arr contains sorted numbers
+    for i in range(len(a)):
+        a[i] = temp[i]
+
+    return a
+
+# Example usage
+a = [4, 2, 2, 8, 3, 3]
+sorted_a = counting_sort(a)
+print("Sorted array:", sorted_a)
