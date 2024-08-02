@@ -1,0 +1,26 @@
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+def bucket_sort(a):
+    number_of_buckts = len(arr)
+    buckts = [[] for _ in range(number_of_buckts)]
+    for i in a:
+        idx = int(i * number_of_buckts)
+        buckts[idx].append(i)
+    sorted_a = []
+    for b in buckts:
+        sorted_a.extend(insertion_sort(b))
+
+    return sorted_a
+
+# Example usage
+arr = [0.78, 0.17, 0.39, 0.26, 0.72, 0.94]
+sorted_arr = bucket_sort(arr)
+print("Sorted array:", sorted_arr)
