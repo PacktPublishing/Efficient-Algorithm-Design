@@ -19,9 +19,9 @@ def count_sort(a, e):
         a[i] = result[i]
 
 def radix_sort(a):
-    max_value = max(a)
+    maxv = max(a)
     e = 1
-    while max_value // e > 0:
+    while maxv // e > 0:
         count_sort(a, e)
         e *= 10
 
