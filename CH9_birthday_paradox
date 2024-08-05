@@ -1,0 +1,30 @@
+import random
+import matplotlib.pyplot as plt
+def simulate_birthday_paradox(trials, n):
+    shared_birthday_count = 0
+    for _ in range(trials):
+        birthdays = []
+        for person in range(n):
+            birthday = random.randint(1, 365)
+            if birthday in birthdays:
+                shared_birthday_count += 1
+                break
+            birthdays.append(birthday)
+    return shared_birthday_count / trials
+def main():
+    trials = 10000 
+    results = []
+    group_sizes = range(2, 367) 
+    for n in group_sizes:
+        probability = simulate_birthday_paradox(trials, n)
+        results.append(probability)
+        print(f"Group size: {n}, Probability of shared birthday: {probability:.4f}")
+    plt.figure(figsize=(10, 6))
+    plt.plot(group_sizes, results, marker='o')
+    plt.title('Birthday Paradox Simulation')
+    plt.xlabel('Group Size')
+    plt.ylabel('Probability of Shared Birthday')
+    plt.grid(True)
+    plt.show()
+if __name__ == "__main__":
+    main()
