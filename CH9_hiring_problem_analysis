@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def calculate_p_n(n, k):
+    """Calculate P_n(k) for given n and k."""
+    if k == 1:
+        return 1 / n
+    sum_term = sum(1 / (j - 1) for j in range(k, n + 1))
+    return (k - 1) / n * sum_term
+
+def find_optimal_k(n):
+    """Find the value of k that maximizes P_n for a given n."""
+    probabilities = [calculate_p_n(n, k) for k in range(1, n + 1)]
+    optimal_k = np.argmax(probabilities) + 1
+    return optimal_k, probabilities
+
+# Parameters
+n_values = np.arange(10, 501, 1)  # Smoother plot with more points
+optimal_k_ratios = []
+
+# Calculate optimal k/n ratios for different values of n
+for n in n_values:
+    optimal_k, probabilities = find_optimal_k(n)
+    optimal_k_ratios.append(optimal_k / n)
+
+# Plot the ratio of optimal k to n
+plt.figure(figsize=(10, 6))
+plt.plot(n_values, optimal_k_ratios, marker='o', linestyle='-', markersize=4, label='Optimal k/n Ratio')
+plt.axhline(1/np.e, color='r', linestyle='--', label='1/e (approximately 0.3679)')
+plt.title('Optimal k/n Ratio for Different Values of n')
+plt.xlabel('n')
+plt.ylabel('Optimal k/n Ratio')
+plt.legend()
+plt.grid(True)
+plt.show()
