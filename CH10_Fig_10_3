@@ -5,24 +5,24 @@ from IPython.display import display, Markdown
 tree = Tree()
 
 # Define the nodes and their parent-child relationships
-tree.create_node("F(5)", "f5")  # Root node
-tree.create_node("F(4)", "f4", parent="f5")
-tree.create_node("F(3)", "f3", parent="f5")
-tree.create_node("F(2)", "f2", parent="f3")
-tree.create_node("F(1)", "f1", parent="f3")
-tree.create_node("F(3)", "f31", parent="f4")
+tree.create_node("Fibonacci(5)", "f5")  # Root node
+tree.create_node("Fibonacci(4)", "f4", parent="f5")
+tree.create_node("Fibonacci(3)", "f3", parent="f5")
+tree.create_node("Fibonacci(2)", "f2", parent="f3")
+tree.create_node("Fibonacci(1)", "f1", parent="f3")
+tree.create_node("Fibonacci(3)", "f31", parent="f4")
 
-tree.create_node("F(2)", "f21", parent="f4")
-tree.create_node("F(1)", "f11", parent="f2")
-tree.create_node("F(1)", "f12", parent="f21")
-tree.create_node("F(0)", "f0", parent="f2")
-tree.create_node("F(0)", "f01", parent="f21")
+tree.create_node("Fibonacci(2)", "f21", parent="f4")
+tree.create_node("Fibonacci(1)", "f11", parent="f2")
+tree.create_node("Fibonacci(1)", "f12", parent="f21")
+tree.create_node("Fibonacci(0)", "f0", parent="f2")
+tree.create_node("Fibonacci(0)", "f01", parent="f21")
 
-tree.create_node("F(2)", "f22", parent="f31")
-tree.create_node("F(1)", "f13", parent="f31")
+tree.create_node("Fibonacci(2)", "f22", parent="f31")
+tree.create_node("Fibonacci(1)", "f13", parent="f31")
 
-tree.create_node("F(1)", "f14", parent="f22")
-tree.create_node("F(0)", "f02", parent="f22")
+tree.create_node("Fibonacci(1)", "f14", parent="f22")
+tree.create_node("Fibonacci(0)", "f02", parent="f22")
 
 
 # Convert the tree to a string
