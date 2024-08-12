@@ -1,0 +1,33 @@
+import matplotlib.pyplot as plt
+import networkx as nx
+# Create a directed graph for Figure 10.2
+G = nx.DiGraph()
+edges = [
+    ("Toronto", "Chicago"),
+    ("Chicago","Denver"),
+    ("Denver","Los Angeles"),
+    ("Toronto","Los Angeles")
+]
+# Add edges to the graph
+G.add_edges_from(edges)
+
+# Position nodes using a hierarchical layout
+pos = nx.spring_layout(G)
+
+# Draw the graph
+plt.figure(figsize=(12, 8))
+nx.draw(G, pos, with_labels=True, node_size=2000, node_color='lightblue', font_size=20, font_weight='bold', arrowsize=20)
+
+nx.draw_networkx_edge_labels(
+    G, pos,
+    edge_labels={ ("Toronto", "Chicago"):"$295",
+                ("Chicago","Denver"):"$282",
+                ("Denver","Los Angeles"):"$239",
+                ("Toronto","Los Angeles"):"$957"
+               },
+    font_color='red',
+     font_size=20,
+)
+
+#plt.title("Fibonacci Tree for f(8) using Divide-and-Conquer")
+plt.show()
