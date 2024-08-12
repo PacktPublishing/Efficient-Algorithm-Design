@@ -1,4 +1,4 @@
-def fibonacci(n):
+def bottom_up_fib(n):
     if n <= 1:
         return n
     fib = [0] * (n+1)
