@@ -1,0 +1,9 @@
+def dp_fib(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = dp_fib(n-1, memo) + dp_fib(n-2, memo)   
+    return memo[n]
+n = 10
+print(f"Fibonacci number F({n}) is: {dp_fib(n)}")
