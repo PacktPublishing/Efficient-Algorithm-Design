@@ -1,0 +1,14 @@
+def knapsack(weights, values, W):
+  n = len(weights)
+  d = [[0 for _ in range(W + 1)] for _ in range(n + 1)]
+  for i in range(n + 1):
+    for w in range(W + 1):
+      if i == 0 or w == 0:
+        d[i][w] = 0
+      elif weights[i - 1] <= w:
+        d[i][w] = max(values[i - 1] + d[i - 1][w - weights[i - 1]], d[i - 1][w])
+      else:
+        d[i][w] = d[i - 1][w]
+  return d[n][W]    
+
+
