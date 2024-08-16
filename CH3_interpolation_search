@@ -1,0 +1,17 @@
+def interpolation_search(a, x): 
+    low = 0 
+    high = len(a) - 1   
+    while low <= high and x >= a[low] and x <= a[high]: 
+        if low == high: 
+            if a[low] == x: 
+                return low 
+            return -1 
+        pos = low + ((high - low) // (a[high] - a[low]) * (x - a[low]))  
+        if a[pos] == x: 
+            return pos 
+        if a[pos] < x: 
+            low = pos + 1 
+        else: 
+            high = pos - 1 
+    return -1
+print(interpolation_search([0,1,3,5,8,10],10))
