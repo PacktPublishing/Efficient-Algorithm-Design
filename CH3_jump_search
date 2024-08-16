@@ -1,0 +1,15 @@
+import math 
+def jump_search(a, x): 
+    n = len(a) 
+    step = int(math.sqrt(n)) 
+    prev = 0 
+    while a[min(step, n)-1] < x: 
+        prev = step 
+        step += int(math.sqrt(n)) 
+        if prev >= n: 
+            return -1 
+    for i in range(prev, min(step, n)): 
+        if a[i] == x: 
+            return i 
+    return -1 
+print(jump_search([3,1,6,2,8,0],3))
