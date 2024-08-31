@@ -1,0 +1,11 @@
+def get_nth(self, index):
+    temp = self.head
+    count = 0
+    while (temp):
+        if (count == index):
+            return temp.data
+    count += 1
+    temp = temp.next
+    return None
+# Example usage:
+value = llist.get_nth(2)  # Returns the value of the third node
