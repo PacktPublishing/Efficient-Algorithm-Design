@@ -1,0 +1,9 @@
+def search_node(self, key):
+    temp = self.head
+    while temp is not None:
+        if temp.data == key:
+            return True
+        temp = temp.next
+    return False
+# Example usage:
+found = llist.search(3)  # Returns True if 3 is found   
