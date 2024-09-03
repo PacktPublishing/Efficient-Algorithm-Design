@@ -1,0 +1,53 @@
+import random
+class Node:
+    def __init__(self, value, level):
+        self.value = value
+        self.forward = [None] * (level + 1)
+class SkipList:
+    def __init__(self, max_level):
+        self.max_level = max_level
+        self.head = Node(-1, max_level)  # Head node with value -1 (acts as a sentinel)
+        self.level = 0
+    def random_level(self):
+        level = 0
+        while random.random() < 0.5 and level < self.max_level:
+            level += 1
+        return level
+    def insert(self, value):
+        update = [None] * (self.max_level + 1)
+        current = self.head
+        for i in range(self.level, -1, -1):
+            while current.forward[i] and current.forward[i].value < value:
+                current = current.forward[i]
+            update[i] = current
+        level = self.random_level()
+        if level > self.level:
+            for i in range(self.level + 1, level + 1):
+                update[i] = self.head
+            self.level = level
+        new_node = Node(value, level)
+        for i in range(level + 1):
+            new_node.forward[i] = update[i].forward[i]
+            update[i].forward[i] = new_node
+    def print_skiplist(self):
+        print("Skip List:")
+        for i in range(self.level, -1, -1):
+            print(f"Level {i}: ", end="")
+            node = self.head.forward[i]
+            while node:
+                print(node.value, end=" -> ")
+                node = node.forward[i]
+            print("None")
+# Example usage
+if __name__ == "__main__":
+    skiplist = SkipList(3)
+    # Insert elements into the skip list
+    skiplist.insert(3)
+    skiplist.insert(4)
+    skiplist.insert(5)
+    skiplist.insert(7)
+    skiplist.insert(8)
+    skiplist.insert(9)
+    skiplist.insert(10)
+    # Print the skip list
+    skiplist.print_skiplist()
