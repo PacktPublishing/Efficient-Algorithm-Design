@@ -1,17 +1,18 @@
-def interpolation_search(a, x): 
+def interpolation_search(arr, x): 
     low = 0 
-    high = len(a) - 1   
-    while low <= high and x >= a[low] and x <= a[high]: 
+    high = len(arr) - 1 
+    while low <= high and x >= arr[low] and x <= arr[high]: 
         if low == high: 
-            if a[low] == x: 
+            if arr[low] == x: 
                 return low 
             return -1 
-        pos = low + ((high - low) // (a[high] - a[low]) * (x - a[low]))  
-        if a[pos] == x: 
+        pos = low + ((high - low) // (arr[high] - arr[low]) 			* (x - arr[low]))  
+        if arr[pos] == x: 
             return pos 
-        if a[pos] < x: 
+        if arr[pos] < x: 
             low = pos + 1 
         else: 
             high = pos - 1 
     return -1
-print(interpolation_search([0,1,3,5,8,10],10))
+print(jump_search([0,1,3,5,8,10],11))
+print(jump_search([0,1,3,5,8,10],5))
