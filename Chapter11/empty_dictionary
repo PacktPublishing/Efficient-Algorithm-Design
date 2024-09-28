@@ -1,0 +1,6 @@
+# Creating an empty dictionary
+student_grades = {}
+# Inserting key-value pairs into the dictionary
+student_grades["Alice"] = 85
+student_grades["Bob"] = 90
+print(student_grades)  # Output: {'Alice': 85, 'Bob': 90}
