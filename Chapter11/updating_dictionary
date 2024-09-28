@@ -1,0 +1,6 @@
+# Updating an existing key-value pair
+student_grades["Alice"] = 88
+print(student_grades)  # Output: {'Alice': 88, 'Bob': 90}
+# Adding a new key-value pair through update
+student_grades["Charlie"] = 92
+print(student_grades)  # Output: {'Alice': 88, 'Bob': 90, 'Charlie': 92}
