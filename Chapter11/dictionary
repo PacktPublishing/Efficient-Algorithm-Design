@@ -1,0 +1,22 @@
+# Creating a dictionary to store information about a student
+student_info = {
+    "name": "John Doe",
+    "age": 21,
+    "major": "Computer Science",
+    "GPA": 3.8
+}
+# Accessing values using keys
+print("Name:", student_info["name"])   # Output: Name: John Doe
+print("Age:", student_info["age"])     # Output: Age: 21
+# Adding a new key-value pair
+student_info["graduation_year"] = 2024
+print("Graduation Year:", student_info["graduation_year"])  # Output: Graduation Year: 2024
+# Updating an existing value
+student_info["GPA"] = 3.9
+print("Updated GPA:", student_info["GPA"])  # Output: Updated GPA: 3.9
+# Deleting a key-value pair
+del student_info["major"]
+print("After deletion:", student_info)  # Output: {'name': 'John Doe', 'age': 21, 'GPA': 3.9, 'graduation_year': 2024}
+# Iterating over the dictionary
+for key, value in student_info.items():
+    print(f"{key}: {value}")
