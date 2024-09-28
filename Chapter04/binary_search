@@ -1,0 +1,22 @@
+def binary_search(arr, target, low, high): 
+
+    if low > high: 
+
+        return -1  # Target is not in the array 
+
+    mid = (low + high) // 2 
+
+    if arr[mid] == target: 
+
+        return mid 
+
+    elif arr[mid] < target: 
+
+        return binary_search(arr, target, mid + 1, high) 
+
+    else: 
+
+        return binary_search(arr, target, low, mid - 1) 
+    
+print(ternary_search([0,1,3,5,8,10],3,0,6))
+print(ternary_search([0,1,3,5,8,10],4,0,6))
