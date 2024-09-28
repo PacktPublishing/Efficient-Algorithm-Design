@@ -1,18 +1,34 @@
-from itertools import permutations 
-def calculate_distance(permutation, distance_matrix): 
-    distance = 0 
-    for i in range(len(permutation) - 1): 
-        distance += distance_matrix[permutation[i]][permutation[i + 1]] 
-    distance += distance_matrix[permutation[-1]][permutation[0]]  # Return to the start 
-    return distance 
-def tsp_brute_force(distance_matrix): 
-    n = len(distance_matrix) 
-    cities = list(range(n)) 
-    min_distance = float('inf') 
-    best_permutation = None  
-    for permutation in permutations(cities): 
-        current_distance = calculate_distance(permutation, distance_matrix) 
-        if current_distance < min_distance: 
-            min_distance = current_distance 
-            best_permutation = permutation 
-    return best_permutation, min_distance 
+from itertools import permutations
+
+def calculate_distance(permutation, distance_matrix):
+    distance = 0
+    for i in range(len(permutation) - 1):
+        distance += distance_matrix[permutation[i]][permutation[i + 1]]
+    distance += distance_matrix[permutation[-1]][permutation[0]]  # Return to the start
+    return distance
+
+def tsp_brute_force(distance_matrix):
+    n = len(distance_matrix)
+    cities = list(range(n))
+    min_distance = float('inf')
+    best_permutation = None
+
+    for permutation in permutations(cities):
+        current_distance = calculate_distance(permutation, distance_matrix)
+        if current_distance < min_distance:
+            min_distance = current_distance
+            best_permutation = permutation
+
+    return best_permutation, min_distance
+
+# Example usage:
+distance_matrix = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
+best_route, min_distance = tsp_brute_force(distance_matrix)
+print("Best route:", best_route)
+print("Minimum distance:", min_distance)
