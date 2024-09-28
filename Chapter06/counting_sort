@@ -1,38 +1,36 @@
-def counting_sort(a):
+def counting_sort(arr):
     if not arr:
         return arr
 
-    maxv = max(a)
-    minv = min(a)
-    rangev = maxv - minv + 1
+    max_val = max(arr)
+    min_val = min(arr)
+    range_of_elements = max_val - min_val + 1
 
     # Create a count array to store count of individual elements and initialize it to 0
-    count = [0] * rangev
-    temp = [0] * len(a)
+    count = [0] * range_of_elements
+    output = [0] * len(arr)
 
     # Store the count of each element
-    for k in a:
-        count[k - minv] += 1
+    for num in arr:
+        count[num - min_val] += 1
 
     # Change count[i] so that count[i] contains the actual position of this element in the output array
     for i in range(1, len(count)):
         count[i] += count[i - 1]
 
     # Build the output array
-    for k in reversed(a):
-        temp[count[k - minv] - 1] = k
-        count[k - minv] -= 1
-        print(temp)
-        print(temp)
-        print('-------')
+    for num in reversed(arr):
+        output[count[num - min_val] - 1] = num
+        count[num - min_val] -= 1
 
     # Copy the output array to arr, so that arr contains sorted numbers
-    for i in range(len(a)):
-        a[i] = temp[i]
+    for i in range(len(arr)):
+        arr[i] = output[i]
 
-    return a
+    return arr
 
 # Example usage
-a = [4, 2, 2, 8, 3, 3]
-sorted_a = counting_sort(a)
-print("Sorted array:", sorted_a)
+arr=[ 7,93 ,40 ,31, 55, 50, 89, 48, 80,  2, 80, 76, 16, 18,  4 , 1 ,17,  0, 17, 35,  7, 85, 75, 21,  57]
+#arr = [4, 2, 2, 8, 3, 3]
+sorted_arr = counting_sort(arr)
+print("Sorted array:", sorted_arr)
