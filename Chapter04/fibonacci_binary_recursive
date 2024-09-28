@@ -1,0 +1,10 @@
+def fibonacci_binary_recursive(n): 
+
+    if n <= 1: 
+
+        return n 
+
+    else: 
+
+        return fibonacci_binary_recursive(n - 1) +        fibonacci_binary_recursive(n - 2) 
+print(fibonacci_binary_recursive(10))
