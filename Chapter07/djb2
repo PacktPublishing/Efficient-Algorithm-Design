@@ -1,0 +1,7 @@
+def djb2(string):
+  hash = 5381
+  for char in string:
+    hash = ((hash << 5) + hash) + ord(char)
+  return hash & 0xFFFFFFFF 
+
+print(djb2('I am not a robot!'))
