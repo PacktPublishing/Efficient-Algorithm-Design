@@ -1,0 +1,22 @@
+#nested recursive
+def functionA(n): 
+
+    if n <= 0: 
+
+        return "End" 
+
+    else: 
+
+        return functionB(n - 1) 
+
+def functionB(n): 
+
+    if n <= 0: 
+
+        return "End" 
+
+    else: 
+
+        return functionA(n - 2) 
+
+print(functionA(61))
