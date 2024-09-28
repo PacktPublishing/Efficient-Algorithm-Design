@@ -1,0 +1,10 @@
+def multiple_recursive(n): 
+
+    if n <= 1: 
+
+        return 1 
+
+    else: 
+
+        return multiple_recursive(n - 1) + multiple_recursive(n - 2) + multiple_recursive(n - 3) 
+print(multiple_recursive(7))
