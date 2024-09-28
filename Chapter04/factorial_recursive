@@ -1,0 +1,14 @@
+def factorial_recursive(n): 
+
+    # Base case 
+
+    if n == 0: 
+
+        return 1 
+
+    # Recursive case 
+
+    else: 
+
+        return n * factorial_recursive(n - 1) 
+print(factorial_iterative(10))
