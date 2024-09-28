@@ -1,0 +1,6 @@
+# Deleting a key-value pair by key
+del student_grades["Bob"]
+print(student_grades)  # Output: {'Alice': 88, 'Charlie': 92}
+# Attempting to delete a non-existent key (optional approach)
+removed_grade = student_grades.pop("David", "Key not found")
+print(removed_grade)  # Output: Key not found
