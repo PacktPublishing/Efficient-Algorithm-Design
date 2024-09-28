@@ -28,7 +28,7 @@ def merge(A,p,q,r):
             j=j+1
     return(A)
                 
-def merge_sort_recursive(A,p,r):
+def mergeSort(A,p,r):
     if p<r:
         q=int(np.floor((p+r)/2))
         mergeSort(A,p,q)
@@ -41,5 +41,5 @@ def merge_sort_recursive(A,p,r):
 
 x = random.randint(100, size=(25))
 print(x)
-b=mergeSort(x,1,25)
+b=mergeSort(x,0,2)
 print(b)
