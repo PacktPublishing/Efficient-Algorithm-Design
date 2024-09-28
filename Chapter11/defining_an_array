@@ -1,0 +1,4 @@
+# Define an array (list) of integers
+a = [10, 20, 30, 40, 50]
+# Print the array
+print(a)  # Outputs: [10, 20, 30, 40, 50]
