@@ -1,0 +1,21 @@
+def power_recursive(base, exponent): 
+
+    # Base case 
+
+    if exponent == 0: 
+
+        return 1 
+
+    # Recursive case 
+
+    elif exponent % 2 == 0: 
+
+        half_power = power_recursive(base, exponent // 2) 
+
+        return half_power * half_power 
+
+    else: 
+
+        return base * power_recursive(base, exponent - 1) 
+
+print(power_recursive(5,4))
