@@ -1,0 +1,10 @@
+def nested_recursive_function(n): 
+
+    if n > 100: 
+
+        return n - 10 
+
+    else: 
+
+        return nested_recursive_function(nested_recursive(n + 11)) 
+print(nested_recursive(6))
