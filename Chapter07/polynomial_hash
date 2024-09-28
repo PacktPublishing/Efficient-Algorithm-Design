@@ -1,0 +1,9 @@
+def polynomial_hash(string, p=11, m=2**31):
+  hash_value = 0
+  for char in string:
+    hash_value = (hash_value * p + ord(char)) % m
+  return hash_value
+# Example usage
+string = "Hello"
+hash_value = polynomial_hash(string)
+print(f"The polynomial hash value of '{string}' is: {hash_value}")
