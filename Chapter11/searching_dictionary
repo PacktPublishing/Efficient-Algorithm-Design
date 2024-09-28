@@ -1,0 +1,6 @@
+# Searching for a value by its key
+alice_grade = student_grades.get("Alice")
+print("Alice's grade:", alice_grade)  # Output: Alice's grade: 85
+# Searching for a non-existent key
+charlie_grade = student_grades.get("Charlie", "Not Found")
+print("Charlie's grade:", charlie_grade)  # Output: Charlie's grade: Not Found
