@@ -1,24 +1,14 @@
-def quick_sort_recursive(a):
-    l = len(a)
-    if l <= 1:
-        return a
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
     else:
-        pivot = a[l // 2]
-        left_partition = []
-        for x in a:
-            if x < pivot:
-                left_partition.append(x)
-        middle = []
-        for x in a:
-            if x == pivot:
-                middle.append(x)
-        right_partition = []
-        for x in a:
-            if x > pivot:
-                right_partition.append(x)
-        return quick_sort_recursive(left_partition) + middle + quick_sort_recursive(right_partition)
+        pivot = arr[len(arr) // 2]
+        left = [x for x in arr if x < pivot]
+        middle = [x for x in arr if x == pivot]
+        right = [x for x in arr if x > pivot]
+        return quick_sort(left) + middle + quick_sort(right)
 
-    # Example usage
-a = [38, 27, 43, 3, 9, 82, 7]
-a=quick_sort_recursive(a)
-print("Sorted aay:", a)
+# Example usage
+arr = [35, 12, 99, 42, 5, 8]
+sorted_arr = quick_sort(arr)
+print("Sorted array:", sorted_arr)
