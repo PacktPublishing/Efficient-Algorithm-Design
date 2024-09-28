@@ -1,0 +1,11 @@
+def linear_recursive(n): 
+
+    if n == 0: 
+
+        return 0 
+
+    else: 
+
+        return n + linear_recursive(n - 1) 
+
+print(linear_recursive(6))
