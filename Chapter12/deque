@@ -1,0 +1,4 @@
+from collections import deque
+d = deque([2, 3])
+d.appendleft(1)  # Deque is now [1, 2, 3]
+print(d)
