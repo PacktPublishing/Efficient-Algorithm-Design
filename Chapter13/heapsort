@@ -1,0 +1,12 @@
+def heapsort(arr):
+    n = len(arr)
+    build_max_heap(arr)  # Step 1: Build a max-heap
+
+    for i in range(n - 1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]  # Step 2: Swap root with last element
+        heapify(arr, i, 0)  # Step 3: Heapify the reduced heap
+
+# Example usage
+arr = [5, 15, 20, 30, 40]
+heapsort(arr)
+print("Sorted array:", arr)
