@@ -19,17 +19,22 @@ class LinkedList:
                 temp.data = new_data
                 return
             temp = temp.next
+    def print_list(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
 
 # Example usage:
 llist = LinkedList()
 llist.head = Node(1)
 second = Node(2)
 third = Node(4)
-
 llist.head.next = second
 second.next = third
-
 llist.insert(second, 3)  # Inserts 3 between 2 and 4
-
+llist.print_list()
 # Example usage:
 llist.update_node(2, 5)  # Updates node with value 2 to 5
+llist.print_list()
