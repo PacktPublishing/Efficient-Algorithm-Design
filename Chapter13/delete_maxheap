@@ -1,0 +1,29 @@
+def heapify_down(heap, index):
+    largest = index
+    left = 2 * index + 1
+    right = 2 * index + 2
+
+    if left < len(heap) and heap[left] > heap[largest]:
+        largest = left
+    if right < len(heap) and heap[right] > heap[largest]:
+        largest = right
+
+    if largest != index:
+        heap[index], heap[largest] = heap[largest], heap[index]
+        heapify_down(heap, largest)
+
+def delete_max_heap(heap):
+    if len(heap) == 0:
+        return None
+    if len(heap) == 1:
+        return heap.pop()
+    
+    root = heap[0]
+    heap[0] = heap.pop()  # Move last element to the root
+    heapify_down(heap, 0)  # Restore heap property
+    return root
+
+# Example usage
+heap = [40, 30, 20, 5, 15]
+deleted = delete_max_heap(heap)
+print("Heap after deletion of max element:", heap)
