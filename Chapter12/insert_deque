@@ -1,2 +1,4 @@
+from collections import deque
+d = deque([2, 3, 6])
 d.append(3)  # Deque is now [1, 2, 3]
 print(d)
