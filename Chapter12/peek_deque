@@ -1,0 +1,6 @@
+import collections
+d = collections.deque((2,3, 7, 9))
+print(d)
+front_element = d[0]  #Returns the front element w/o removing it; Deque remains [1, 2]
+rear_element = d[-1]  #Returns the rear element w/o removing it; Deque remains [1, 2]
+print(front_element,rear_element)
