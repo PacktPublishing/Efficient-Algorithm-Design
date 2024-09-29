@@ -1,0 +1,2 @@
+stack[-1] = 5  # Changes the top element to 5; Stack becomes [3, 5]
+print(stack)
