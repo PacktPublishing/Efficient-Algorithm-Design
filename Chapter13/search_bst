@@ -1,0 +1,41 @@
+# Definition of a TreeNode class for the BST
+class TreeNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+# Function to insert a node in the BST
+def insert(node, key):
+    # If the tree is empty, return a new node
+    if node is None:
+        return TreeNode(key)
+    # Otherwise, recur down the tree
+    if key < node.key:
+        node.left = insert(node.left, key)
+    else:
+        node.right = insert(node.right, key)
+    return node
+# Function to search a key in the BST
+def search(node, key):
+    # Base case: the node is None (key not found) or the key matches the current node's key
+    if node is None or node.key == key:
+        return node
+
+    # If the key is smaller than the node's key, search the left subtree
+    if key < node.key:
+        return search(node.left, key)
+    # Otherwise, search the right subtree
+    return search(node.right, key)
+# Create the root node and insert elements into the BST
+root = None
+keys = [20, 10, 30, 5, 15, 25, 35]
+for key in keys:
+    root = insert(root, key)
+# Search for a key in the BST
+search_key = 25
+found_node = search(root, search_key)
+# Output the result
+if found_node:
+    print(f"Key {search_key} found in the BST.")
+else:
+    print(f"Key {search_key} not found in the BST.")
