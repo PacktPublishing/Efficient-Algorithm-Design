@@ -1,0 +1,10 @@
+# Array representation of a complete binary tree
+binary_tree = [10, 5, 20, 3, 7, 15, 25]
+# Accessing elements
+root = binary_tree[0]
+left_child_of_root = binary_tree[2 * 0 + 1]  # index 1
+right_child_of_root = binary_tree[2 * 0 + 2]  # index 2
+# Display the values
+print(f"Root: {root}")
+print(f"Left Child of Root: {left_child_of_root}")
+print(f"Right Child of Root: {right_child_of_root}")
