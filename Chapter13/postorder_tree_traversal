@@ -1,0 +1,9 @@
+# Function for post-order traversal
+def postorder_traversal(node):
+    if node:
+        postorder_traversal(node.left)
+        postorder_traversal(node.right)
+        print(node.key, end=' ')
+# Perform post-order traversal
+print("Post-Order Traversal:")
+postorder_traversal(root)
