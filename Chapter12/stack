@@ -1,0 +1,4 @@
+stack = []
+stack.append(3)  # Stack is now [3]
+stack.append(5)  # Stack is now [3, 5]
+print(stack)
