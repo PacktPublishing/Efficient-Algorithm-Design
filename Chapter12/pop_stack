@@ -1,0 +1,2 @@
+top_element = stack.pop()  
+print(stack)
