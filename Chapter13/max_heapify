@@ -1,0 +1,24 @@
+def heapify(heap, n, i):
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+
+    if left < n and heap[left] > heap[largest]:
+        largest = left
+    if right < n and heap[right] > heap[largest]:
+        largest = right
+
+    if largest != i:
+        heap[i], heap[largest] = heap[largest], heap[i]
+        heapify(heap, n, largest)
+
+def build_max_heap(arr):
+    n = len(arr)
+    # Start from the first non-leaf node and heapify each node
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(arr, n, i)
+
+# Example usage
+arr = [5, 15, 20, 30, 40]
+build_max_heap(arr)
+print("Array after building max-heap:", arr)
