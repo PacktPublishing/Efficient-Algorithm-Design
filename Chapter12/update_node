@@ -1,9 +1,0 @@
-def update_node(self, old_data, new_data):
-    temp = self.head
-    while temp is not None:
-        if temp.data == old_data:
-            temp.data = new_data
-            return
-        temp = temp.next
-# Example usage:
-llist.update_node(2, 5)  # Updates node with value 2 to 5
