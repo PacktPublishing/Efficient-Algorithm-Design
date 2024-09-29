@@ -1,11 +1,41 @@
-def get_nth(self, index):
-    temp = self.head
-    count = 0
-    while (temp):
-        if (count == index):
-            return temp.data
-    count += 1
-    temp = temp.next
-    return None
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, prev_node, new_data):
+        new_node = Node(new_data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+    def print_list(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+    def get_nth(self, index):
+        temp = self.head
+        count = 0
+        while (temp):
+            if (count == index):
+                return temp.data
+            count += 1
+        temp = temp.next
+        return None
+
+# Example usage:
+llist = LinkedList()
+llist.head = Node(1)
+second = Node(2)
+third = Node(4)
+llist.head.next = second
+second.next = third
+llist.insert(second, 3)  # Inserts 3 between 2 and 4
+llist.print_list()
+
 # Example usage:
 value = llist.get_nth(2)  # Returns the value of the third node
+print(value)
