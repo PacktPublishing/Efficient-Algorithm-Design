@@ -1,0 +1,9 @@
+# Function for pre-order traversal
+def preorder_traversal(node):
+    if node:
+        print(node.key, end=' ')
+        preorder_traversal(node.left)
+        preorder_traversal(node.right)
+# Perform pre-order traversal
+print("Pre-Order Traversal:")
+preorder_traversal(root)
