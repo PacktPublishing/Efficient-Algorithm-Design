@@ -1,0 +1,2 @@
+d.append(3)  # Deque is now [1, 2, 3]
+print(d)
