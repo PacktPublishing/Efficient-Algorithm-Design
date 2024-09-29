@@ -1,0 +1,39 @@
+# You will need first: pip install networkx matplotlib
+import networkx as nx
+import matplotlib.pyplot as plt
+# Define the graph as an adjacency list
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['B' , 'F'],
+    'D': ['E'],
+    'E': ['F'],
+    'F': ['A']
+}
+
+def visualize_graph(G):
+    pos = nx.spring_layout(G)  # Positions for all nodes
+    nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=2000, font_size=10, font_weight='bold')
+    plt.title("Graph Visualization")
+    plt.show()
+# DFS function (optional, same as before)
+visited = set()
+def dfs(node):
+    if node not in visited:
+        print(node)
+        visited.add(node)
+        for neighbor in graph[node]:
+            dfs(neighbor)
+# Start DFS at node 'A'
+
+# Visualize the graph
+
+G = nx.DiGraph()
+# Add edges to the graph
+for node, neighbors in graph.items():
+    for neighbor in neighbors:
+        G.add_edge(node, neighbor)
+# Visualize the graph using NetworkX and Matplotlib
+visualize_graph(G)
+# Create a directed graph using NetworkX
+dfs('A')
