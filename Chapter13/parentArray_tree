@@ -1,0 +1,38 @@
+# Function to build the tree from a parent array
+def build_tree(parent_array):
+    n = len(parent_array)
+    nodes = [None] * n
+    root = None
+    # Create tree nodes for each index
+    for i in range(n):
+        nodes[i] = TreeNode(i)
+    # Assign parents to each node
+    for i in range(n):
+        if parent_array[i] == -1:
+            root = nodes[i]  # This is the root node
+        else:
+            parent_node = nodes[parent_array[i]]
+            if parent_node.left is None:
+                parent_node.left = nodes[i]
+            else:
+                parent_node.right = nodes[i]
+    return root
+# TreeNode class definition
+class TreeNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+# Example parent array where -1 represents the root
+parent_array = [-1, 0, 0, 1, 1, 2, 2]
+# Build the tree from the parent array
+root = build_tree(parent_array)
+# Function to perform an in-order traversal of the tree
+def inorder_traversal(node):
+    if node:
+        inorder_traversal(node.left)
+        print(node.key, end=' ')
+        inorder_traversal(node.right)
+# In-order traversal of the tree
+print("In-order Traversal:")
+inorder_traversal(root)
