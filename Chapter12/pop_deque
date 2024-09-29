@@ -1,0 +1,5 @@
+import collections
+d = collections.deque((2,3, 7, 9))
+print(d)
+rear_element = d.pop()  
+print(d)
