@@ -1,0 +1,20 @@
+def heapify_up(heap, index):
+    parent = (index - 1) // 2
+    if index > 0 and heap[parent] < heap[index]:
+        # Swap the parent and current node
+        heap[parent], heap[index] = heap[index], heap[parent]
+        # Recursively heapify the parent node
+        heapify_up(heap, parent)
+
+def insert_max_heap(heap, element):
+    heap.append(element)
+    heapify_up(heap, len(heap) - 1)
+
+# Example usage
+heap = []
+insert_max_heap(heap, 20)
+insert_max_heap(heap, 15)
+insert_max_heap(heap, 30)
+insert_max_heap(heap, 5)
+insert_max_heap(heap, 40)
+print("Heap after insertions:", heap)
