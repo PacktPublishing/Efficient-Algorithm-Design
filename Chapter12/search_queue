@@ -1,0 +1,3 @@
+target = 2
+position = queue.index(target)  
+print(position)
