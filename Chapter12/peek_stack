@@ -1,0 +1,3 @@
+# stack peek
+top_element = stack[-1]  
+print(stack)
