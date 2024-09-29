@@ -1,0 +1,78 @@
+# Definition of the TreeNode class
+class TreeNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+
+# Function to insert a node in the BST
+def insert(node, key):
+    if node is None:
+        return TreeNode(key)
+    if key < node.key:
+        node.left = insert(node.left, key)
+    else:
+        node.right = insert(node.right, key)
+    return node
+
+# Function to find the minimum value node in the right subtree (in-order successor)
+def min_value_node(node):
+    current = node
+    while current.left is not None:
+        current = current.left
+    return current
+
+# Function to delete a node from the BST
+def delete_node(root, key):
+    # Base case: the tree is empty
+    if root is None:
+        return root
+
+    # If the key to be deleted is smaller than the root's key, go to the left subtree
+    if key < root.key:
+        root.left = delete_node(root.left, key)
+
+    # If the key to be deleted is greater than the root's key, go to the right subtree
+    elif key > root.key:
+        root.right = delete_node(root.right, key)
+
+    # If key is equal to the root's key, this is the node to be deleted
+    else:
+        # Case 1: Node with only one child or no child
+        if root.left is None:
+            return root.right
+        elif root.right is None:
+            return root.left
+
+        # Case 2: Node with two children
+        # Get the in-order successor (smallest in the right subtree)
+        temp = min_value_node(root.right)
+
+        # Replace the current node's key with the in-order successor's key
+        root.key = temp.key
+
+        # Delete the in-order successor
+        root.right = delete_node(root.right, temp.key)
+
+    return root
+
+# Create a BST and insert values into it
+root = None
+keys = [20, 10, 30, 5, 15, 25, 35]
+for key in keys:
+    root = insert(root, key)
+
+# Delete a node from the BST
+delete_key = 30
+root = delete_node(root, delete_key)
+
+# Function to perform in-order traversal
+def inorder_traversal(node):
+    if node:
+        inorder_traversal(node.left)
+        print(node.key, end=' ')
+        inorder_traversal(node.right)
+
+# Perform in-order traversal after deletion
+print("In-order Traversal after Deletion:")
+inorder_traversal(root)
