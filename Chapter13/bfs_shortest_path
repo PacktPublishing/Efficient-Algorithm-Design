@@ -1,0 +1,17 @@
+def bfs_shortest_path(start_node, target_node):
+    visited = set()
+    queue = deque([[start_node]])  # Queue stores paths
+    while queue:
+        path = queue.popleft()  # Dequeue the first path
+        node = path[-1]  # Get the last node from the path
+        if node == target_node:
+            return path  # Return the path when target is reached
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                new_path = list(path)
+                new_path.append(neighbor)
+                queue.append(new_path)  # Enqueue the new path
+    return None  # Return None if there is no path
+# Find the shortest path between 'A' and 'F'
+print(bfs_shortest_path('A', 'F'))
