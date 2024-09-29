@@ -1,0 +1,23 @@
+# Definition of TreeNode class
+class TreeNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+# Function for in-order traversal
+def inorder_traversal(node):
+    if node:
+        inorder_traversal(node.left)
+        print(node.key, end=' ')
+        inorder_traversal(node.right)
+# Example: Build the BST
+root = TreeNode(22)
+root.left = TreeNode(35)
+root.right = TreeNode(30)
+root.left.left = TreeNode(5)
+root.left.right = TreeNode(15)
+root.right.left = TreeNode(25)
+root.right.right = TreeNode(35)
+# Perform in-order traversal
+print("In-Order Traversal:")
+inorder_traversal(root)
