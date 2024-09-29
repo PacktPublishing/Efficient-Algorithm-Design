@@ -1,0 +1,22 @@
+from collections import deque
+# Graph represented as an adjacency list
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': ['A'],
+    'E': ['B','D'],
+    'F': ['E','D']
+}
+# BFS function
+def bfs(start_node):
+    visited = set()           # Set to track visited nodes
+    queue = deque([start_node])  # Initialize the queue with the starting node
+    while queue:
+        node = queue.popleft()  # Dequeue a node
+        if node not in visited:
+            print(node)
+            visited.add(node)  # Mark it as visited
+            queue.extend(graph[node])  # Enqueue all unvisited neighbors
+# Start BFS at node 'A'
+bfs('A')
