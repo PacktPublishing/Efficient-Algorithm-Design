@@ -1,0 +1,2 @@
+front_element = queue.pop(0)  
+print(front_element)
