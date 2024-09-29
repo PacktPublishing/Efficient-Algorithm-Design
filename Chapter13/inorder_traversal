@@ -1,0 +1,24 @@
+# Definition of a TreeNode class in Python
+class TreeNode:
+    def __init__(self, key):
+        self.key = key       # Node value
+        self.left = None     # Pointer to left child
+        self.right = None    # Pointer to right child
+# Creating nodes and linking them to form a binary tree
+root = TreeNode(10)          # Root node
+root.left = TreeNode(5)      # Left child of root
+root.right = TreeNode(20)    # Right child of root
+# Adding more nodes to the tree
+root.left.left = TreeNode(3) # Left child of node with value 5
+root.left.right = TreeNode(7) # Right child of node with value 5
+root.right.left = TreeNode(15) # Left child of node with value 20
+root.right.right = TreeNode(25) # Right child of node with value 20
+# Function to perform an in-order traversal of the tree
+def inorder_traversal(node):
+    if node:
+        inorder_traversal(node.left)
+        print(node.key, end=' ')
+        inorder_traversal(node.right)
+# In-order traversal of the tree
+print("In-order Traversal:")
+inorder_traversal(root)
