@@ -1,0 +1,35 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, prev_node, new_data):
+        new_node = Node(new_data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+
+    def update_node(self, old_data, new_data):
+        temp = self.head
+        while temp is not None:
+            if temp.data == old_data:
+                temp.data = new_data
+                return
+            temp = temp.next
+
+# Example usage:
+llist = LinkedList()
+llist.head = Node(1)
+second = Node(2)
+third = Node(4)
+
+llist.head.next = second
+second.next = third
+
+llist.insert(second, 3)  # Inserts 3 between 2 and 4
+
+# Example usage:
+llist.update_node(2, 5)  # Updates node with value 2 to 5
