@@ -1,0 +1,7 @@
+queue = []
+queue.append(1)  # Queue is now [1]
+queue.append(2)  # Queue is now [1, 2]
+queue.append(3)  # Queue is now [1, 2, 3]
+print(queue)
+front_element = queue[0]  
+print(front_element)
