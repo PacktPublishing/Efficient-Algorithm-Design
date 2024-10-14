@@ -1,31 +1,31 @@
 import math
-def jump_search(arr, target):
-    n = len(arr)
+def jump_search(a, target):
+    n = len(a)
     step = int(math.sqrt(n))  # Block size to jump
     prev = 0
     # Finding the block where the element is present
-    while arr[min(step, n) - 1] < target:
+    while a[min(step, n) - 1] < target:
         prev = step
         step += int(math.sqrt(n))
         if prev >= n:
             return -1
 
     # Linear search for target within the block
-    while arr[prev] < target:
+    while a[prev] < target:
         prev += 1
         if prev == min(step, n):
             return -1
     
     # If element is found
-    if arr[prev] == target:
+    if a[prev] == target:
         return prev
 
     return -1
 
 # Example usage
-arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 target = 6
-result = jump_search(arr, target)
+result = jump_search(a, target)
 
 if result != -1:
     print(f"Element {target} found at index {result}")
