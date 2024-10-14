@@ -13,12 +13,12 @@ def heapify(heap, n, i):
         heapify(heap, n, largest)
 
 def build_max_heap(arr):
-    n = len(arr)
+    n = len(a)
     # Start from the first non-leaf node and heapify each node
     for i in range(n // 2 - 1, -1, -1):
-        heapify(arr, n, i)
+        heapify(a, n, i)
 
 # Example usage
-arr = [5, 15, 20, 30, 40]
-build_max_heap(arr)
-print("Array after building max-heap:", arr)
+a = [5, 15, 20, 30, 40]
+build_max_heap(a)
+print("Array after building max-heap:", a)
