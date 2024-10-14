@@ -8,7 +8,7 @@ def recursive_linear_search(a, target, index=0):
 # Example usage
 a = [3, 5, 2, 4, 9, 1]
 target = 4
-result = recursive_linear_search(arr, target)
+result = recursive_linear_search(a, target)
 
 if result != -1:
     print(f"Element {target} found at index {result}")
