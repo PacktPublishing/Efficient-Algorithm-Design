@@ -28,13 +28,12 @@ All of the code is organized into folders. For example, Chapter10.
 The code will look like the following:
 ```
 def dp_fib(n, memo={}):
-if n in memo:
+    if n in memo:
+        return memo[n]
+    if n <= 1:
+        return n
+    memo[n] = dp_fib(n-1, memo) + dp_fib(n-2, memo)
     return memo[n]
- if n <= 1:
-     return n
- memo[n] = dp_fib(n-1, memo) + dp_fib(n-2, memo)
- return memo[n]
-
 ```
 
 **Following is what you need for this book:**
